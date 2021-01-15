@@ -42,3 +42,20 @@ form.verify({
         }
     }
 });
+//--------------------登录功能----------------------------------
+$('.login form').on('submit', function(e) {
+    e.preventDefault()
+    var data = $(this).serialize()
+    $.ajax({
+        type: 'POST',
+        url: '/api/login',
+        data: data,
+        success: function(res) {
+            layer.msg(res.message)
+            if (res.status === 0) {
+                localStorage.setItem('token', res.token);
+                location.href = './index.html'
+            }
+        }
+    })
+})
