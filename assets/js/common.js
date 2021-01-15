@@ -13,5 +13,9 @@ $.ajaxPrefilter(function(option) {
             localStorage.removeItem('token');
             location.href = './login.html'
         }
+        //------------------判断其他错触发后给一个提示---------------------------
+        if (res && res.status === 1) {
+            layer.msg(res.message)
+        }
     }
 })

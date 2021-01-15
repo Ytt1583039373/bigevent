@@ -58,5 +58,5 @@ body {
 /* 默认注册页面不显示 */
 
 .register {
-    /* display: none; */
+    display: none;
 }
