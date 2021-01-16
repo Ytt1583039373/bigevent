@@ -1,0 +1,21 @@
+body {
+    background-color: #f2f3f5;
+}
+
+
+/* 调整卡片面板的边距 */
+
+.layui-card {
+    margin: 15px;
+}
+
+
+/* 设置标题区 */
+
+.layui-card-header {
+    display: flex;
+    align-items: center;
+    /*上下居中对齐*/
+    justify-content: space-between;
+    /*左右两端对齐*/
+}
