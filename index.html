@@ -1,3 +1,10 @@
+<!-- 页面刷新判断有没有token -->
+
+<script>
+    if (localStorage.getItem('token') === null) {
+        location.href = './login.html'
+    }
+</script>
 <!DOCTYPE html>
 <html>
 
@@ -29,7 +36,7 @@
                         <dd><a href="">更换头像</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href=""><i class="layui-icon layui-icon-logout"></i>退出</a></li>
+                <li class="layui-nav-item"><a href="javascript:;" id="logoout"><i class="layui-icon layui-icon-logout"></i>退出</a></li>
             </ul>
         </div>
 
@@ -76,13 +83,16 @@
         </div>
     </div>
     <script src="./assets/lib/layui/layui.all.js "></script>
-    <script>
+    <script src="./assets/lib/jquery.js"></script>
+    <script src="./assets/js/common.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <!-- <script>
         //JavaScript代码区域
         layui.use('element', function() {
             var element = layui.element;
 
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

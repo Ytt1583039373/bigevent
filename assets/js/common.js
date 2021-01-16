@@ -8,8 +8,9 @@ $.ajaxPrefilter(function(option) {
     };
     // 判断complete 身份如果身份认证失败跳转回 登录页面
     option.complete = function(xhr) {
+
         var res = xhr.responseJSON;
-        if (res && res.status === 1 && res.message === '身份认证失败!') {
+        if (res && res.status === 1 && res.message === "身份认证失败！") {
             localStorage.removeItem('token');
             location.href = './login.html'
         }
