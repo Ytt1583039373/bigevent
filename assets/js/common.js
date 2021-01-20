@@ -8,15 +8,20 @@ $.ajaxPrefilter(function(option) {
     };
     // 判断complete 身份如果身份认证失败跳转回 登录页面
     option.complete = function(xhr) {
-
         var res = xhr.responseJSON;
-        if (res && res.status === 1 && res.message === "身份认证失败！") {
+        if (res && res.status === 1 && res.message === '身份认证失败！') {
+            // 清除掉过期的token
             localStorage.removeItem('token');
-            location.href = './login.html'
+            // 跳转到登录页 (location.pathname 表示url的路径部分)
+            if (location.pathname === '/index.html') {
+                location.href = './login.html';
+            } else {
+                window.parent.location.href = '../login.html';
+            }
         }
-        //------------------判断其他错触发后给一个提示---------------------------
+        // 其他错误
         if (res && res.status === 1) {
-            layer.msg(res.message)
+            layer.msg(res.message);
         }
     }
 })

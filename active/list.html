@@ -16,25 +16,21 @@
         <div class="layui-card-header">文章列表</div>
         <div class="layui-card-body">
             <!-- 内容区一 表单搜索区 start -->
-            <form class="layui-form" action="">
+            <form class="layui-form" action="" id="screen">
                 <div class="layui-form-item">
 
                     <div class="layui-inline">
                         <div class="layui-input-inline" style="width: 200px;">
-                            <select name="city" lay-verify="">
-                                <option value="">请选择一个城市</option>
-                                <option value="010">北京</option>
-                                <option value="021">上海</option>
-                                <option value="0571">杭州</option>
+                            <select id="fl" lay-verify="" name="cate_id">
+                                
                             </select>
                         </div>
 
                         <div class="layui-input-inline" style="width: 200px;">
-                            <select name="city" lay-verify="">
-                                <option value="">请选择一个城市</option>
-                                <option value="010">北京</option>
-                                <option value="021">上海</option>
-                                <option value="0571">杭州</option>
+                            <select name="state" id="state" lay-verify="">
+                                <option value="">请选择状态</option>
+                                <option value="已发布">已发布</option>
+                                <option value="草稿">草稿</option>
                             </select>
                         </div>
                     </div>
@@ -68,16 +64,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>静夜思</td>
-                        <td>艺术</td>
-                        <td>2021-01-13 12:39:08</td>
-                        <td>已发布</td>
-                        <td>
-                            <button type="button" class="layui-btn layui-btn-xs">编辑</button>
-                            <button type="button" class="layui-btn layui-btn-xs layui-btn-danger">删除</button>
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>
             <!-- 内容区二 表格区 end -->
@@ -87,13 +74,34 @@
             <!-- 内容区三 分页区 end -->
         </div>
     </div>
+    <script type="text/html" id="tpl-article">
+        {{each data item }}
+        <tr>
+            <td>{{item.title}}</td>
+            <td>{{item.cate_name}}</td>
+            <td>{{item.pub_date| dateFormat}}</td>
+            <td>{{item.state}}</td>
+            <td>
+                <a href="./edit.html?id={{item.id}}" target="fm" class="layui-btn layui-btn-xs">编辑</a>
+                <button data-id="{{item.id}} " type="button " class="layui-btn layui-btn-xs layui-btn-danger ">删除</button>
+            </td>
+        </tr>
+        {{/each}}
 
+    </script>
+    <!-- -----------------------------------下拉框模板引擎-------------------------------------------------------------- -->
+    <script type="text/html " id="tpl-category">
+        <option value=" ">请选择一个分类</option>
+        {{each data item }}
+        <option value="{{item.id}} ">{{item.name}}</option>
+        {{/each}}
+    </script>
 
-    <script src="../assets/lib/layui/layui.all.js"></script>
-    <script src="../assets/lib/jquery.js"></script>
-    <script src="../assets/lib/template-web.js"></script>
-    <script src="../assets/js/common.js"></script>
-    <script src="./js/list.js"></script>
+    <script src="../assets/lib/layui/layui.all.js "></script>
+    <script src="../assets/lib/jquery.js "></script>
+    <script src="../assets/lib/template-web.js "></script>
+    <script src="../assets/js/common.js "></script>
+    <script src="./js/list.js "></script>
 </body>
 
 </html>

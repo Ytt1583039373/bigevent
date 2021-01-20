@@ -6,7 +6,7 @@ $('form').on('submit', function(e) {
         url: '/my/user/updatepwd',
         data: data,
         success: function(res) {
-            console.log(res);
+
             layer.msg(res.message);
             if (res.status === 0) {
                 // 修改成功后，清空token，跳转到登录页，重新登录
